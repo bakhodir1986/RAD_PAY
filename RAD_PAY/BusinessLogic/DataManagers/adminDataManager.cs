@@ -37,17 +37,61 @@ namespace RAD_PAY.BusinessLogic.ViewModels
 
         public static void Modify(adminViewModel model, RAD_PAYEntities db)
         {
+            var result = db.admins.Where(z => z.id == model.id);
 
+            if (result.Any())
+            {
+                var dbmodel = result.FirstOrDefault();
+
+                if (dbmodel != null)
+                {
+                    dbmodel.id = model.id                   ;
+                    dbmodel.login = model.login             ;
+                    dbmodel.password = model.password       ;
+                    dbmodel.first_name = model.first_name   ;
+                    dbmodel.status = model.status           ;
+                    dbmodel.last_name = model.last_name     ;
+                    dbmodel.flag = model.flag               ;
+                    dbmodel.phone = model.phone;
+                }
+            }
         }
 
         public static void Delete(adminViewModel model, RAD_PAYEntities db)
         {
+            var result = db.admins.Where(z => z.id == model.id);
 
+            if (result.Any())
+            {
+                var dbmodel = result.FirstOrDefault();
+
+                if (dbmodel != null)
+                {
+                    db.admins.Remove(dbmodel);
+                }
+            }
         }
 
         public static List<adminViewModel> Get(adminViewModel model, RAD_PAYEntities db)
         {
-            return new List<adminViewModel>();
+            List<adminViewModel> list = null;
+
+            var query = from resmodel in db.admins
+                        select new adminViewModel
+                        {
+                            id = resmodel.id,
+                            login = resmodel.login,
+                            password = resmodel.password,
+                            first_name = resmodel.first_name,
+                            status = resmodel.status,
+                            last_name = resmodel.last_name,
+                            flag = resmodel.flag,
+                            phone = resmodel.phone,
+                        };
+
+            list = query.ToList();
+
+            return list;
         }
     }
 }
