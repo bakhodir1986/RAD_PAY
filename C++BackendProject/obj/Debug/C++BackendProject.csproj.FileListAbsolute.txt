@@ -1,0 +1,2 @@
+D:\RAD SOFT\Projects\RAD_PAY\RAD_PAY\C++BackendProject\obj\Debug\C++BackendProject.csprojAssemblyReference.cache
+D:\RAD SOFT\Projects\RAD_PAY\RAD_PAY\C++BackendProject\obj\Debug\C++BackendProject.csproj.CoreCompileInputs.cache

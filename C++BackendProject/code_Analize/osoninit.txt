@@ -1,0 +1,28 @@
+﻿osond.cpp Entry Point
+
+int main( int argc, char* argv[] ) 
+{
+    oson::application app(argc, argv);
+
+    return app.run();
+}
+
+------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+Statictics:
+	#define CONFIG_FILE_LOCATION "/etc/oson/osond.conf"
+    #define PID_FILE "/var/run/osond.pid"
+    #define LOG_FILE_LOCATION "/var/log/osond.log"
+    #define IOS_CERT_FILE_LOCATION "/etc/oson/ios/production.pem"

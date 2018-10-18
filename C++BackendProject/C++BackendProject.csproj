@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1641CAE0-65E8-481A-A78C-60ED729AD39F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>C__BackendProject</RootNamespace>
+    <AssemblyName>C++BackendProject</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="src\src.makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="code_Analize\osoninit.txt" />
+    <Content Include="src\admin.cpp" />
+    <Content Include="src\admin.h" />
+    <Content Include="src\adminapi.cpp" />
+    <Content Include="src\adminapi.h" />
+    <Content Include="src\application.cpp" />
+    <Content Include="src\application.h" />
+    <Content Include="src\bank.cpp" />
+    <Content Include="src\bank.h" />
+    <Content Include="src\bills.cpp" />
+    <Content Include="src\bills.h" />
+    <Content Include="src\cards.cpp" />
+    <Content Include="src\cards.h" />
+    <Content Include="src\clientapi.cpp" />
+    <Content Include="src\clientapi.h" />
+    <Content Include="src\config_types.h" />
+    <Content Include="src\DB_T.cpp" />
+    <Content Include="src\DB_T.h" />
+    <Content Include="src\eocp_api.cpp" />
+    <Content Include="src\eocp_api.h" />
+    <Content Include="src\eopc_queue.cpp" />
+    <Content Include="src\eopc_queue.h" />
+    <Content Include="src\exception.h" />
+    <Content Include="src\fault.cpp" />
+    <Content Include="src\fault.h" />
+    <Content Include="src\http_request.cpp" />
+    <Content Include="src\http_request.h" />
+    <Content Include="src\http_server.cpp" />
+    <Content Include="src\http_server.h" />
+    <Content Include="src\icons.cpp" />
+    <Content Include="src\icons.h" />
+    <Content Include="src\log.cpp" />
+    <Content Include="src\log.h" />
+    <Content Include="src\merchant_api.cpp" />
+    <Content Include="src\merchant_api.h" />
+    <Content Include="src\Merchant_T.cpp" />
+    <Content Include="src\Merchant_T.h" />
+    <Content Include="src\msg_android.cpp" />
+    <Content Include="src\msg_android.h" />
+    <Content Include="src\news.cpp" />
+    <Content Include="src\news.h" />
+    <Content Include="src\osond.cpp" />
+    <Content Include="src\osond.h" />
+    <Content Include="src\osoninit.cpp" />
+    <Content Include="src\paynet_gate.cpp" />
+    <Content Include="src\paynet_gate.h" />
+    <Content Include="src\periodic_bill.cpp" />
+    <Content Include="src\periodic_bill.h" />
+    <Content Include="src\png_image.cpp" />
+    <Content Include="src\png_image.h" />
+    <Content Include="src\purchase.cpp" />
+    <Content Include="src\purchase.h" />
+    <Content Include="src\Pusher.cpp" />
+    <Content Include="src\Pusher.h" />
+    <Content Include="src\queue.cpp" />
+    <Content Include="src\queue.h" />
+    <Content Include="src\runtime_options.h" />
+    <Content Include="src\sms_sender.cpp" />
+    <Content Include="src\sms_sender.h" />
+    <Content Include="src\ssl_server.cpp" />
+    <Content Include="src\ssl_server.hpp" />
+    <Content Include="src\topupmerchant.cpp" />
+    <Content Include="src\topupmerchant.h" />
+    <Content Include="src\transaction.cpp" />
+    <Content Include="src\transaction.h" />
+    <Content Include="src\types.h" />
+    <Content Include="src\users.cpp" />
+    <Content Include="src\users.h" />
+    <Content Include="src\utils.cpp" />
+    <Content Include="src\utils.h" />
+    <Content Include="src\utils_endian.cpp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

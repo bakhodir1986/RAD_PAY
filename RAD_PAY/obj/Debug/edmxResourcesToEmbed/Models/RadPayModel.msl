@@ -1,0 +1,763 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RAD_PAYModelStoreContainer" CdmEntityContainer="RAD_PAYEntities">
+    <EntitySetMapping Name="activate_code">
+      <EntityTypeMapping TypeName="RAD_PAYModel.activate_code">
+        <MappingFragment StoreEntitySet="activate_code">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="add_ts" ColumnName="add_ts" />
+          <ScalarProperty Name="dev_id" ColumnName="dev_id" />
+          <ScalarProperty Name="valid" ColumnName="valid" />
+          <ScalarProperty Name="kind" ColumnName="kind" />
+          <ScalarProperty Name="other_id" ColumnName="other_id" />
+          <ScalarProperty Name="lives" ColumnName="lives" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="admins">
+      <EntityTypeMapping TypeName="RAD_PAYModel.admin">
+        <MappingFragment StoreEntitySet="admins">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="flag" ColumnName="flag" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="banks">
+      <EntityTypeMapping TypeName="RAD_PAYModel.bank">
+        <MappingFragment StoreEntitySet="bank">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="min_limit" ColumnName="min_limit" />
+          <ScalarProperty Name="max_limit" ColumnName="max_limit" />
+          <ScalarProperty Name="add_ts" ColumnName="add_ts" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="terminal_id" ColumnName="terminal_id" />
+          <ScalarProperty Name="port" ColumnName="port" />
+          <ScalarProperty Name="month_limit" ColumnName="month_limit" />
+          <ScalarProperty Name="offer_link" ColumnName="offer_link" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="bin_code" ColumnName="bin_code" />
+          <ScalarProperty Name="icon_id" ColumnName="icon_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bank_bonus">
+      <EntityTypeMapping TypeName="RAD_PAYModel.bank_bonus">
+        <MappingFragment StoreEntitySet="bank_bonus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="bank_id" ColumnName="bank_id" />
+          <ScalarProperty Name="min_amount" ColumnName="min_amount" />
+          <ScalarProperty Name="percent" ColumnName="percent" />
+          <ScalarProperty Name="start_date" ColumnName="start_date" />
+          <ScalarProperty Name="end_date" ColumnName="end_date" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="bonus_amount" ColumnName="bonus_amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bills">
+      <EntityTypeMapping TypeName="RAD_PAYModel.bill">
+        <MappingFragment StoreEntitySet="bills">
+          <ScalarProperty Name="bill_id" ColumnName="bill_id" />
+          <ScalarProperty Name="deposit" ColumnName="deposit" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="card_bonus">
+      <EntityTypeMapping TypeName="RAD_PAYModel.card_bonus">
+        <MappingFragment StoreEntitySet="card_bonus">
+          <ScalarProperty Name="card_id" ColumnName="card_id" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="expire" ColumnName="expire" />
+          <ScalarProperty Name="xid" ColumnName="xid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="tpl" ColumnName="tpl" />
+          <ScalarProperty Name="pc_token" ColumnName="pc_token" />
+          <ScalarProperty Name="owner" ColumnName="owner" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="notify_ts" ColumnName="notify_ts" />
+          <ScalarProperty Name="owner_phone" ColumnName="owner_phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="card_monitoring">
+      <EntityTypeMapping TypeName="RAD_PAYModel.card_monitoring">
+        <MappingFragment StoreEntitySet="card_monitoring">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="card_id" ColumnName="card_id" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="pan" ColumnName="pan" />
+          <ScalarProperty Name="ts" ColumnName="ts" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="reversal" ColumnName="reversal" />
+          <ScalarProperty Name="credit" ColumnName="credit" />
+          <ScalarProperty Name="refnum" ColumnName="refnum" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="rad_pid" ColumnName="rad_pid" />
+          <ScalarProperty Name="rad_tid" ColumnName="rad_tid" />
+          <ScalarProperty Name="merchant_name" ColumnName="merchant_name" />
+          <ScalarProperty Name="epos_merchant_id" ColumnName="epos_merchant_id" />
+          <ScalarProperty Name="epos_terminal_id" ColumnName="epos_terminal_id" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="city" ColumnName="city" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="card_monitoring_cabinet">
+      <EntityTypeMapping TypeName="RAD_PAYModel.card_monitoring_cabinet">
+        <MappingFragment StoreEntitySet="card_monitoring_cabinet">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="card_id" ColumnName="card_id" />
+          <ScalarProperty Name="monitoring_flag" ColumnName="monitoring_flag" />
+          <ScalarProperty Name="add_ts" ColumnName="add_ts" />
+          <ScalarProperty Name="start_date" ColumnName="start_date" />
+          <ScalarProperty Name="end_date" ColumnName="end_date" />
+          <ScalarProperty Name="purchase_id" ColumnName="purchase_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="off_ts" ColumnName="off_ts" />
+          <ScalarProperty Name="periodic_id" ColumnName="periodic_id" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="card_monitoring_load">
+      <EntityTypeMapping TypeName="RAD_PAYModel.card_monitoring_load">
+        <MappingFragment StoreEntitySet="card_monitoring_load">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="card_id" ColumnName="card_id" />
+          <ScalarProperty Name="from_date" ColumnName="from_date" />
+          <ScalarProperty Name="to_date" ColumnName="to_date" />
+          <ScalarProperty Name="ts" ColumnName="ts" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="card_monitoring_tarif">
+      <EntityTypeMapping TypeName="RAD_PAYModel.card_monitoring_tarif">
+        <MappingFragment StoreEntitySet="card_monitoring_tarif">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="mid" ColumnName="mid" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="card_topup_master">
+      <EntityTypeMapping TypeName="RAD_PAYModel.card_topup_master">
+        <MappingFragment StoreEntitySet="card_topup_master">
+          <ScalarProperty Name="card_id" ColumnName="card_id" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="expire" ColumnName="expire" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="pc_token" ColumnName="pc_token" />
+          <ScalarProperty Name="owner" ColumnName="owner" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="notify_ts" ColumnName="notify_ts" />
+          <ScalarProperty Name="owner_phone" ColumnName="owner_phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cards">
+      <EntityTypeMapping TypeName="RAD_PAYModel.card">
+        <MappingFragment StoreEntitySet="cards">
+          <ScalarProperty Name="card_id" ColumnName="card_id" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="expire" ColumnName="expire" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="is_primary" ColumnName="is_primary" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="tpl" ColumnName="tpl" />
+          <ScalarProperty Name="tr_limit" ColumnName="tr_limit" />
+          <ScalarProperty Name="block" ColumnName="block" />
+          <ScalarProperty Name="user_block" ColumnName="user_block" />
+          <ScalarProperty Name="pc_token" ColumnName="pc_token" />
+          <ScalarProperty Name="owner" ColumnName="owner" />
+          <ScalarProperty Name="foreign_card" ColumnName="foreign_card" />
+          <ScalarProperty Name="owner_phone" ColumnName="owner_phone" />
+          <ScalarProperty Name="daily_limit" ColumnName="daily_limit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="currencies">
+      <EntityTypeMapping TypeName="RAD_PAYModel.currency">
+        <MappingFragment StoreEntitySet="currencies">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="usd_uzs" ColumnName="usd_uzs" />
+          <ScalarProperty Name="usd_rub" ColumnName="usd_rub" />
+          <ScalarProperty Name="usd_eur" ColumnName="usd_eur" />
+          <ScalarProperty Name="upd_ts" ColumnName="upd_ts" />
+          <ScalarProperty Name="expiry_ts" ColumnName="expiry_ts" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="epos">
+      <EntityTypeMapping TypeName="RAD_PAYModel.epos">
+        <MappingFragment StoreEntitySet="epos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="terminal_id" ColumnName="terminal_id" />
+          <ScalarProperty Name="port" ColumnName="port" />
+          <ScalarProperty Name="bank_id" ColumnName="bank_id" />
+          <ScalarProperty Name="a" ColumnName="a" />
+          <ScalarProperty Name="b" ColumnName="b" />
+          <ScalarProperty Name="c" ColumnName="c" />
+          <ScalarProperty Name="d" ColumnName="d" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="error_codes">
+      <EntityTypeMapping TypeName="RAD_PAYModel.error_codes">
+        <MappingFragment StoreEntitySet="error_codes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="message_eng" ColumnName="message_eng" />
+          <ScalarProperty Name="message_rus" ColumnName="message_rus" />
+          <ScalarProperty Name="message_uzb" ColumnName="message_uzb" />
+          <ScalarProperty Name="ex_id" ColumnName="ex_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="faults">
+      <EntityTypeMapping TypeName="RAD_PAYModel.fault">
+        <MappingFragment StoreEntitySet="fault">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="ts" ColumnName="ts" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="ts_notify" ColumnName="ts_notify" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="favorites">
+      <EntityTypeMapping TypeName="RAD_PAYModel.favorite">
+        <MappingFragment StoreEntitySet="favorite">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="field_id" ColumnName="field_id" />
+          <ScalarProperty Name="key" ColumnName="key" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="prefix" ColumnName="prefix" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="fav_id" ColumnName="fav_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="icons">
+      <EntityTypeMapping TypeName="RAD_PAYModel.icon">
+        <MappingFragment StoreEntitySet="icons">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="path_hash" ColumnName="path_hash" />
+          <ScalarProperty Name="kind" ColumnName="kind" />
+          <ScalarProperty Name="ts" ColumnName="ts" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="sha1_sum" ColumnName="sha1_sum" />
+          <ScalarProperty Name="b" ColumnName="b" />
+          <ScalarProperty Name="c" ColumnName="c" />
+          <ScalarProperty Name="d" ColumnName="d" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logs">
+      <EntityTypeMapping TypeName="RAD_PAYModel.log">
+        <MappingFragment StoreEntitySet="log">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="aid" ColumnName="aid" />
+          <ScalarProperty Name="add_ts" ColumnName="add_ts" />
+          <ScalarProperty Name="action" ColumnName="action" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchants">
+      <EntityTypeMapping TypeName="RAD_PAYModel.merchant">
+        <MappingFragment StoreEntitySet="merchant">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="inn" ColumnName="inn" />
+          <ScalarProperty Name="contract" ColumnName="contract" />
+          <ScalarProperty Name="contract_date" ColumnName="contract_date" />
+          <ScalarProperty Name="mfo" ColumnName="mfo" />
+          <ScalarProperty Name="ch_account" ColumnName="ch_account" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="terminal_id" ColumnName="terminal_id" />
+          <ScalarProperty Name="port" ColumnName="port" />
+          <ScalarProperty Name="min_amount" ColumnName="min_amount" />
+          <ScalarProperty Name="max_amount" ColumnName="max_amount" />
+          <ScalarProperty Name="external" ColumnName="external" />
+          <ScalarProperty Name="ext_service_id" ColumnName="ext_service_id" />
+          <ScalarProperty Name="bank_id" ColumnName="bank_id" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="rate_money" ColumnName="rate_money" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="api_id" ColumnName="api_id" />
+          <ScalarProperty Name="icon_id" ColumnName="icon_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchant_api">
+      <EntityTypeMapping TypeName="RAD_PAYModel.merchant_api">
+        <MappingFragment StoreEntitySet="merchant_api">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="api_json" ColumnName="api_json" />
+          <ScalarProperty Name="options" ColumnName="options" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="api_id" ColumnName="api_id" />
+          <ScalarProperty Name="b" ColumnName="b" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchant_bonus">
+      <EntityTypeMapping TypeName="RAD_PAYModel.merchant_bonus">
+        <MappingFragment StoreEntitySet="merchant_bonus">
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="min_amount" ColumnName="min_amount" />
+          <ScalarProperty Name="percent" ColumnName="percent" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="start_date" ColumnName="start_date" />
+          <ScalarProperty Name="end_date" ColumnName="end_date" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="bonus_amount" ColumnName="bonus_amount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchant_fields">
+      <EntityTypeMapping TypeName="RAD_PAYModel.merchant_fields">
+        <MappingFragment StoreEntitySet="merchant_fields">
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="mid" ColumnName="mid" />
+          <ScalarProperty Name="label" ColumnName="label" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="input_digit" ColumnName="input_digit" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="input_letter" ColumnName="input_letter" />
+          <ScalarProperty Name="prefix_label" ColumnName="prefix_label" />
+          <ScalarProperty Name="label_uz1" ColumnName="label_uz1" />
+          <ScalarProperty Name="label_uz2" ColumnName="label_uz2" />
+          <ScalarProperty Name="min_length" ColumnName="min_length" />
+          <ScalarProperty Name="max_length" ColumnName="max_length" />
+          <ScalarProperty Name="parent_fid" ColumnName="parent_fid" />
+          <ScalarProperty Name="param_name" ColumnName="param_name" />
+          <ScalarProperty Name="usage" ColumnName="usage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchant_fields_data">
+      <EntityTypeMapping TypeName="RAD_PAYModel.merchant_fields_data">
+        <MappingFragment StoreEntitySet="merchant_fields_data">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="key" ColumnName="key" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="prefix" ColumnName="prefix" />
+          <ScalarProperty Name="extra_id" ColumnName="extra_id" />
+          <ScalarProperty Name="parent_key" ColumnName="parent_key" />
+          <ScalarProperty Name="service_id" ColumnName="service_id" />
+          <ScalarProperty Name="service_id_check" ColumnName="service_id_check" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchant_group">
+      <EntityTypeMapping TypeName="RAD_PAYModel.merchant_group">
+        <MappingFragment StoreEntitySet="merchant_group">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="name_uzb" ColumnName="name_uzb" />
+          <ScalarProperty Name="icon_path" ColumnName="icon_path" />
+          <ScalarProperty Name="icon_id" ColumnName="icon_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="news">
+      <EntityTypeMapping TypeName="RAD_PAYModel.news">
+        <MappingFragment StoreEntitySet="news">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+          <ScalarProperty Name="add_ts" ColumnName="add_ts" />
+          <ScalarProperty Name="edit_ts" ColumnName="edit_ts" />
+          <ScalarProperty Name="lang" ColumnName="lang" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notifications">
+      <EntityTypeMapping TypeName="RAD_PAYModel.notification">
+        <MappingFragment StoreEntitySet="notification">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+          <ScalarProperty Name="add_ts" ColumnName="add_ts" />
+          <ScalarProperty Name="send" ColumnName="send" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="paynet_info">
+      <EntityTypeMapping TypeName="RAD_PAYModel.paynet_info">
+        <MappingFragment StoreEntitySet="paynet_info">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="rad_tr_id" ColumnName="rad_tr_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="periodic_bill">
+      <EntityTypeMapping TypeName="RAD_PAYModel.periodic_bill">
+        <MappingFragment StoreEntitySet="periodic_bill">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="field_id" ColumnName="field_id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="periodic_ts" ColumnName="periodic_ts" />
+          <ScalarProperty Name="prefix" ColumnName="prefix" />
+          <ScalarProperty Name="add_ts" ColumnName="add_ts" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="last_bill_ts" ColumnName="last_bill_ts" />
+          <ScalarProperty Name="last_notify_ts" ColumnName="last_notify_ts" />
+          <ScalarProperty Name="card_id" ColumnName="card_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="purchase_info">
+      <EntityTypeMapping TypeName="RAD_PAYModel.purchase_info">
+        <MappingFragment StoreEntitySet="purchase_info">
+          <ScalarProperty Name="rad_tr_id" ColumnName="rad_tr_id" />
+          <ScalarProperty Name="trn_id" ColumnName="trn_id" />
+          <ScalarProperty Name="json_text" ColumnName="json_text" />
+          <ScalarProperty Name="request_type" ColumnName="request_type" />
+          <ScalarProperty Name="input_of_request" ColumnName="input_of_request" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="purchases">
+      <EntityTypeMapping TypeName="RAD_PAYModel.purchase">
+        <MappingFragment StoreEntitySet="purchases">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="ts" ColumnName="ts" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+          <ScalarProperty Name="pan" ColumnName="pan" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="paynet_tr_id" ColumnName="paynet_tr_id" />
+          <ScalarProperty Name="paynet_status" ColumnName="paynet_status" />
+          <ScalarProperty Name="receipt" ColumnName="receipt" />
+          <ScalarProperty Name="rad_paynet_tr_id" ColumnName="rad_paynet_tr_id" />
+          <ScalarProperty Name="rad_tr_id" ColumnName="rad_tr_id" />
+          <ScalarProperty Name="card_id" ColumnName="card_id" />
+          <ScalarProperty Name="bearn" ColumnName="bearn" />
+          <ScalarProperty Name="commission" ColumnName="commission" />
+          <ScalarProperty Name="merch_rsp" ColumnName="merch_rsp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="purchases_reverse">
+      <EntityTypeMapping TypeName="RAD_PAYModel.purchases_reverse">
+        <MappingFragment StoreEntitySet="purchases_reverse">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="aid" ColumnName="aid" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="sms_code" ColumnName="sms_code" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="ts_start" ColumnName="ts_start" />
+          <ScalarProperty Name="ts_confirm" ColumnName="ts_confirm" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="baz" ColumnName="baz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rad_app_info">
+      <EntityTypeMapping TypeName="RAD_PAYModel.rad_app_info">
+        <MappingFragment StoreEntitySet="rad_app_info">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="os" ColumnName="os" />
+          <ScalarProperty Name="release_date" ColumnName="release_date" />
+          <ScalarProperty Name="expiry_date" ColumnName="expiry_date" />
+          <ScalarProperty Name="min_version" ColumnName="min_version" />
+          <ScalarProperty Name="a3" ColumnName="a3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sms_info">
+      <EntityTypeMapping TypeName="RAD_PAYModel.sms_info">
+        <MappingFragment StoreEntitySet="sms_info">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="msg" ColumnName="msg" />
+          <ScalarProperty Name="ts" ColumnName="ts" />
+          <ScalarProperty Name="send" ColumnName="send" />
+          <ScalarProperty Name="nphones" ColumnName="nphones" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="temp_transaction">
+      <EntityTypeMapping TypeName="RAD_PAYModel.temp_transaction">
+        <MappingFragment StoreEntitySet="temp_transaction">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="dst_uid" ColumnName="dst_uid" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="create_ts" ColumnName="create_ts" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="dstcard" ColumnName="dstcard" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="top_up_merchants">
+      <EntityTypeMapping TypeName="RAD_PAYModel.top_up_merchants">
+        <MappingFragment StoreEntitySet="top_up_merchants">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="option" ColumnName="option" />
+          <ScalarProperty Name="min_amount" ColumnName="min_amount" />
+          <ScalarProperty Name="max_amount" ColumnName="max_amount" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="card_id" ColumnName="card_id" />
+          <ScalarProperty Name="icon_id" ColumnName="icon_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="top_up_transactions">
+      <EntityTypeMapping TypeName="RAD_PAYModel.top_up_transactions">
+        <MappingFragment StoreEntitySet="top_up_transactions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="topup_id" ColumnName="topup_id" />
+          <ScalarProperty Name="amount_sum" ColumnName="amount_sum" />
+          <ScalarProperty Name="amount_req" ColumnName="amount_req" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="ts" ColumnName="ts" />
+          <ScalarProperty Name="tse" ColumnName="tse" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="status_text" ColumnName="status_text" />
+          <ScalarProperty Name="card_id" ColumnName="card_id" />
+          <ScalarProperty Name="card_pan" ColumnName="card_pan" />
+          <ScalarProperty Name="eopc_trn_id" ColumnName="eopc_trn_id" />
+          <ScalarProperty Name="rad_card" ColumnName="rad_card" />
+          <ScalarProperty Name="pay_description" ColumnName="pay_description" />
+          <ScalarProperty Name="topup_trn_id" ColumnName="topup_trn_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transactions">
+      <EntityTypeMapping TypeName="RAD_PAYModel.transaction">
+        <MappingFragment StoreEntitySet="transaction">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="srccard" ColumnName="srccard" />
+          <ScalarProperty Name="dstcard" ColumnName="dstcard" />
+          <ScalarProperty Name="srcphone" ColumnName="srcphone" />
+          <ScalarProperty Name="dstphone" ColumnName="dstphone" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="ts" ColumnName="ts" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="dst_uid" ColumnName="dst_uid" />
+          <ScalarProperty Name="commision" ColumnName="commision" />
+          <ScalarProperty Name="ref_num" ColumnName="ref_num" />
+          <ScalarProperty Name="bearn" ColumnName="bearn" />
+          <ScalarProperty Name="status_text" ColumnName="status_text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_bills">
+      <EntityTypeMapping TypeName="RAD_PAYModel.user_bills">
+        <MappingFragment StoreEntitySet="user_bills">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="uid2" ColumnName="uid2" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="add_ts" ColumnName="add_ts" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_bonus">
+      <EntityTypeMapping TypeName="RAD_PAYModel.user_bonus">
+        <MappingFragment StoreEntitySet="user_bonus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="earns" ColumnName="earns" />
+          <ScalarProperty Name="block" ColumnName="block" />
+          <ScalarProperty Name="fio" ColumnName="fio" />
+          <ScalarProperty Name="pan" ColumnName="pan" />
+          <ScalarProperty Name="expire" ColumnName="expire" />
+          <ScalarProperty Name="add_ts" ColumnName="add_ts" />
+          <ScalarProperty Name="bonus_card_id" ColumnName="bonus_card_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_devices">
+      <EntityTypeMapping TypeName="RAD_PAYModel.user_devices">
+        <MappingFragment StoreEntitySet="user_devices">
+          <ScalarProperty Name="dev_id" ColumnName="dev_id" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="dev_token" ColumnName="dev_token" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="add_ts" ColumnName="add_ts" />
+          <ScalarProperty Name="notify_token" ColumnName="notify_token" />
+          <ScalarProperty Name="os" ColumnName="os" />
+          <ScalarProperty Name="login_ts" ColumnName="login_ts" />
+          <ScalarProperty Name="dev_imei" ColumnName="dev_imei" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="RAD_PAYModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="registration" ColumnName="registration" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="notify_token" ColumnName="notify_token" />
+          <ScalarProperty Name="qrstring" ColumnName="qrstring" />
+          <ScalarProperty Name="tr_limit" ColumnName="tr_limit" />
+          <ScalarProperty Name="avatar" ColumnName="avatar" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="lang" ColumnName="lang" />
+          <ScalarProperty Name="blocked" ColumnName="blocked" />
+          <ScalarProperty Name="purch_ts" ColumnName="purch_ts" />
+          <ScalarProperty Name="sms_allow" ColumnName="sms_allow" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users_cabinet">
+      <EntityTypeMapping TypeName="RAD_PAYModel.users_cabinet">
+        <MappingFragment StoreEntitySet="users_cabinet">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="checkpassword" ColumnName="checkpassword" />
+          <ScalarProperty Name="last_passwd_check" ColumnName="last_passwd_check" />
+          <ScalarProperty Name="check_count" ColumnName="check_count" />
+          <ScalarProperty Name="checkcode_expiry" ColumnName="checkcode_expiry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users_full_registers">
+      <EntityTypeMapping TypeName="RAD_PAYModel.users_full_registers">
+        <MappingFragment StoreEntitySet="users_full_registers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="fio" ColumnName="fio" />
+          <ScalarProperty Name="passport_number" ColumnName="passport_number" />
+          <ScalarProperty Name="passport_start_date" ColumnName="passport_start_date" />
+          <ScalarProperty Name="passport_end_date" ColumnName="passport_end_date" />
+          <ScalarProperty Name="passport_image_path" ColumnName="passport_image_path" />
+          <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+          <ScalarProperty Name="nationality" ColumnName="nationality" />
+          <ScalarProperty Name="citizenship" ColumnName="citizenship" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="passport_serial" ColumnName="passport_serial" />
+          <ScalarProperty Name="level" ColumnName="level" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="admin_online">
+      <EntityTypeMapping TypeName="RAD_PAYModel.admin_online">
+        <MappingFragment StoreEntitySet="admin_online">
+          <ScalarProperty Name="aid" ColumnName="aid" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="login_ts" ColumnName="login_ts" />
+          <ScalarProperty Name="last_ts" ColumnName="last_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="admin_permissions">
+      <EntityTypeMapping TypeName="RAD_PAYModel.admin_permissions">
+        <MappingFragment StoreEntitySet="admin_permissions">
+          <ScalarProperty Name="aid" ColumnName="aid" />
+          <ScalarProperty Name="modules" ColumnName="modules" />
+          <ScalarProperty Name="merchant" ColumnName="merchant" />
+          <ScalarProperty Name="bank" ColumnName="bank" />
+          <ScalarProperty Name="permit_flag" ColumnName="permit_flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchant_access_info">
+      <EntityTypeMapping TypeName="RAD_PAYModel.merchant_access_info">
+        <MappingFragment StoreEntitySet="merchant_access_info">
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="api_json" ColumnName="api_json" />
+          <ScalarProperty Name="url" ColumnName="url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchant_qr_image">
+      <EntityTypeMapping TypeName="RAD_PAYModel.merchant_qr_image">
+        <MappingFragment StoreEntitySet="merchant_qr_image">
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="location" ColumnName="location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qr_image">
+      <EntityTypeMapping TypeName="RAD_PAYModel.qr_image">
+        <MappingFragment StoreEntitySet="qr_image">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="location" ColumnName="location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users_online">
+      <EntityTypeMapping TypeName="RAD_PAYModel.users_online">
+        <MappingFragment StoreEntitySet="users_online">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="login_time" ColumnName="login_time" />
+          <ScalarProperty Name="last_online" ColumnName="last_online" />
+          <ScalarProperty Name="dev_id" ColumnName="dev_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,1702 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RAD_PAYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="activate_code">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="phone" Type="text" />
+    <Property Name="code" Type="text" />
+    <Property Name="add_ts" Type="datetime" />
+    <Property Name="dev_id" Type="text" Nullable="false" />
+    <Property Name="valid" Type="bit" Nullable="false" />
+    <Property Name="kind" Type="int" Nullable="false" />
+    <Property Name="other_id" Type="bigint" />
+    <Property Name="lives" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RAD_PAY.dbo.admin_online' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="admin_online">
+    <Key>
+      <PropertyRef Name="aid" />
+      <PropertyRef Name="token" />
+    </Key>
+    <Property Name="aid" Type="bigint" Nullable="false" />
+    <Property Name="token" Type="text" Nullable="false" />
+    <Property Name="login_ts" Type="datetime" />
+    <Property Name="last_ts" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RAD_PAY.dbo.admin_permissions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="admin_permissions">
+    <Key>
+      <PropertyRef Name="aid" />
+      <PropertyRef Name="bank" />
+      <PropertyRef Name="permit_flag" />
+    </Key>
+    <Property Name="aid" Type="bigint" Nullable="false" />
+    <Property Name="modules" Type="int" />
+    <Property Name="merchant" Type="int" />
+    <Property Name="bank" Type="bigint" Nullable="false" />
+    <Property Name="permit_flag" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="admins">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="login" Type="text" Nullable="false" />
+    <Property Name="password" Type="text" Nullable="false" />
+    <Property Name="first_name" Type="text" Nullable="false" />
+    <Property Name="status" Type="int" />
+    <Property Name="last_name" Type="text" Nullable="false" />
+    <Property Name="flag" Type="int" Nullable="false" />
+    <Property Name="phone" Type="text" />
+  </EntityType>
+  <EntityType Name="bank">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="min_limit" Type="bigint" />
+    <Property Name="max_limit" Type="bigint" />
+    <Property Name="add_ts" Type="datetime" />
+    <Property Name="name" Type="text" />
+    <Property Name="rate" Type="int" />
+    <Property Name="merchant_id" Type="bigint" />
+    <Property Name="terminal_id" Type="bigint" />
+    <Property Name="port" Type="int" />
+    <Property Name="month_limit" Type="bigint" />
+    <Property Name="offer_link" Type="text" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="bin_code" Type="text" />
+    <Property Name="icon_id" Type="bigint" />
+  </EntityType>
+  <EntityType Name="bank_bonus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bank_id" Type="bigint" Nullable="false" />
+    <Property Name="min_amount" Type="bigint" />
+    <Property Name="percent" Type="int" />
+    <Property Name="start_date" Type="datetime" />
+    <Property Name="end_date" Type="datetime" />
+    <Property Name="status" Type="int" />
+    <Property Name="longitude" Type="float" />
+    <Property Name="latitude" Type="float" />
+    <Property Name="description" Type="text" />
+    <Property Name="bonus_amount" Type="bigint" />
+  </EntityType>
+  <EntityType Name="bills">
+    <Key>
+      <PropertyRef Name="bill_id" />
+    </Key>
+    <Property Name="bill_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="deposit" Type="money" Nullable="false" />
+    <Property Name="uid" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="card_bonus">
+    <Key>
+      <PropertyRef Name="card_id" />
+    </Key>
+    <Property Name="card_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="number" Type="text" />
+    <Property Name="expire" Type="text" />
+    <Property Name="xid" Type="bigint" />
+    <Property Name="name" Type="text" />
+    <Property Name="tpl" Type="int" />
+    <Property Name="pc_token" Type="text" />
+    <Property Name="owner" Type="text" />
+    <Property Name="password" Type="text" />
+    <Property Name="balance" Type="bigint" />
+    <Property Name="notify_ts" Type="datetime" />
+    <Property Name="owner_phone" Type="text" />
+  </EntityType>
+  <EntityType Name="card_monitoring">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="card_id" Type="bigint" Nullable="false" />
+    <Property Name="uid" Type="bigint" />
+    <Property Name="pan" Type="text" />
+    <Property Name="ts" Type="datetime" />
+    <Property Name="amount" Type="bigint" />
+    <Property Name="reversal" Type="bit" />
+    <Property Name="credit" Type="bit" />
+    <Property Name="refnum" Type="bigint" Nullable="false" />
+    <Property Name="status" Type="int" />
+    <Property Name="rad_pid" Type="bigint" />
+    <Property Name="rad_tid" Type="bigint" />
+    <Property Name="merchant_name" Type="text" />
+    <Property Name="epos_merchant_id" Type="text" />
+    <Property Name="epos_terminal_id" Type="text" />
+    <Property Name="street" Type="text" />
+    <Property Name="city" Type="text" />
+  </EntityType>
+  <EntityType Name="card_monitoring_cabinet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="card_id" Type="bigint" Nullable="false" />
+    <Property Name="monitoring_flag" Type="int" />
+    <Property Name="add_ts" Type="datetime" />
+    <Property Name="start_date" Type="datetime" />
+    <Property Name="end_date" Type="datetime" />
+    <Property Name="purchase_id" Type="bigint" />
+    <Property Name="status" Type="int" />
+    <Property Name="off_ts" Type="datetime" />
+    <Property Name="periodic_id" Type="bigint" />
+    <Property Name="uid" Type="bigint" />
+  </EntityType>
+  <EntityType Name="card_monitoring_load">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="card_id" Type="bigint" />
+    <Property Name="from_date" Type="date" />
+    <Property Name="to_date" Type="date" />
+    <Property Name="ts" Type="datetime" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="card_monitoring_tarif">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="amount" Type="bigint" />
+    <Property Name="mid" Type="int" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="card_topup_master">
+    <Key>
+      <PropertyRef Name="card_id" />
+    </Key>
+    <Property Name="card_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="number" Type="text" />
+    <Property Name="expire" Type="text" />
+    <Property Name="status" Type="int" />
+    <Property Name="name" Type="text" />
+    <Property Name="pc_token" Type="text" />
+    <Property Name="owner" Type="text" />
+    <Property Name="password" Type="text" />
+    <Property Name="balance" Type="bigint" Nullable="false" />
+    <Property Name="notify_ts" Type="datetime" />
+    <Property Name="owner_phone" Type="text" />
+  </EntityType>
+  <EntityType Name="cards">
+    <Key>
+      <PropertyRef Name="card_id" />
+    </Key>
+    <Property Name="card_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="number" Type="text" />
+    <Property Name="expire" Type="text" />
+    <Property Name="uid" Type="bigint" />
+    <Property Name="is_primary" Type="int" />
+    <Property Name="name" Type="text" />
+    <Property Name="tpl" Type="int" />
+    <Property Name="tr_limit" Type="bigint" />
+    <Property Name="block" Type="int" />
+    <Property Name="user_block" Type="int" />
+    <Property Name="pc_token" Type="text" />
+    <Property Name="owner" Type="text" />
+    <Property Name="foreign_card" Type="int" />
+    <Property Name="owner_phone" Type="text" />
+    <Property Name="daily_limit" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="currencies">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usd_uzs" Type="float" />
+    <Property Name="usd_rub" Type="float" />
+    <Property Name="usd_eur" Type="float" />
+    <Property Name="upd_ts" Type="datetime" />
+    <Property Name="expiry_ts" Type="datetime" />
+    <Property Name="type" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="epos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="text" />
+    <Property Name="merchant_id" Type="text" />
+    <Property Name="terminal_id" Type="text" />
+    <Property Name="port" Type="int" />
+    <Property Name="bank_id" Type="int" />
+    <Property Name="a" Type="int" />
+    <Property Name="b" Type="int" />
+    <Property Name="c" Type="int" />
+    <Property Name="d" Type="int" />
+  </EntityType>
+  <EntityType Name="error_codes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="value" Type="int" />
+    <Property Name="message_eng" Type="text" />
+    <Property Name="message_rus" Type="text" />
+    <Property Name="message_uzb" Type="text" />
+    <Property Name="ex_id" Type="int" />
+  </EntityType>
+  <EntityType Name="fault">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="int" />
+    <Property Name="ts" Type="datetime" />
+    <Property Name="status" Type="int" />
+    <Property Name="description" Type="text" />
+    <Property Name="ts_notify" Type="datetime" />
+  </EntityType>
+  <EntityType Name="favorite">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="bigint" />
+    <Property Name="field_id" Type="int" />
+    <Property Name="key" Type="int" />
+    <Property Name="value" Type="text" />
+    <Property Name="prefix" Type="text" />
+    <Property Name="merchant_id" Type="int" />
+    <Property Name="name" Type="text" />
+    <Property Name="fav_id" Type="int" />
+  </EntityType>
+  <EntityType Name="icons">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="location" Type="text" />
+    <Property Name="path_hash" Type="text" />
+    <Property Name="kind" Type="int" />
+    <Property Name="ts" Type="datetime" />
+    <Property Name="size" Type="bigint" />
+    <Property Name="sha1_sum" Type="text" />
+    <Property Name="b" Type="int" />
+    <Property Name="c" Type="int" />
+    <Property Name="d" Type="int" />
+  </EntityType>
+  <EntityType Name="log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="aid" Type="int" />
+    <Property Name="add_ts" Type="datetime" />
+    <Property Name="action" Type="text" />
+  </EntityType>
+  <EntityType Name="merchant">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="text" />
+    <Property Name="url" Type="text" />
+    <Property Name="group_id" Type="int" />
+    <Property Name="status" Type="int" />
+    <Property Name="inn" Type="text" />
+    <Property Name="contract" Type="text" />
+    <Property Name="contract_date" Type="date" />
+    <Property Name="mfo" Type="text" />
+    <Property Name="ch_account" Type="text" />
+    <Property Name="merchant_id" Type="text" />
+    <Property Name="terminal_id" Type="text" />
+    <Property Name="port" Type="int" />
+    <Property Name="min_amount" Type="bigint" />
+    <Property Name="max_amount" Type="bigint" />
+    <Property Name="external" Type="int" Nullable="false" />
+    <Property Name="ext_service_id" Type="text" />
+    <Property Name="bank_id" Type="int" />
+    <Property Name="rate" Type="int" Nullable="false" />
+    <Property Name="rate_money" Type="bigint" Nullable="false" />
+    <Property Name="position" Type="int" />
+    <Property Name="api_id" Type="int" Nullable="false" />
+    <Property Name="icon_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RAD_PAY.dbo.merchant_access_info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="merchant_access_info">
+    <Key>
+      <PropertyRef Name="merchant_id" />
+    </Key>
+    <Property Name="merchant_id" Type="int" Nullable="false" />
+    <Property Name="login" Type="text" />
+    <Property Name="password" Type="text" />
+    <Property Name="api_json" Type="text" />
+    <Property Name="url" Type="text" />
+  </EntityType>
+  <EntityType Name="merchant_api">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="text" />
+    <Property Name="url" Type="text" />
+    <Property Name="login" Type="text" />
+    <Property Name="password" Type="text" />
+    <Property Name="api_json" Type="text" />
+    <Property Name="options" Type="text" />
+    <Property Name="status" Type="int" />
+    <Property Name="api_id" Type="int" Nullable="false" />
+    <Property Name="b" Type="int" />
+  </EntityType>
+  <EntityType Name="merchant_bonus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="merchant_id" Type="int" Nullable="false" />
+    <Property Name="min_amount" Type="bigint" />
+    <Property Name="percent" Type="int" />
+    <Property Name="description" Type="text" />
+    <Property Name="start_date" Type="date" />
+    <Property Name="end_date" Type="date" />
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bonus_amount" Type="bigint" />
+    <Property Name="status" Type="int" />
+    <Property Name="longitude" Type="float" />
+    <Property Name="latitude" Type="float" />
+    <Property Name="group_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="merchant_fields">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mid" Type="int" />
+    <Property Name="label" Type="text" />
+    <Property Name="type" Type="int" />
+    <Property Name="input_digit" Type="int" />
+    <Property Name="position" Type="int" />
+    <Property Name="input_letter" Type="int" />
+    <Property Name="prefix_label" Type="text" />
+    <Property Name="label_uz1" Type="text" />
+    <Property Name="label_uz2" Type="text" />
+    <Property Name="min_length" Type="int" />
+    <Property Name="max_length" Type="int" />
+    <Property Name="parent_fid" Type="int" />
+    <Property Name="param_name" Type="text" />
+    <Property Name="usage" Type="int" />
+  </EntityType>
+  <EntityType Name="merchant_fields_data">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fid" Type="int" />
+    <Property Name="key" Type="int" />
+    <Property Name="value" Type="text" />
+    <Property Name="prefix" Type="text" />
+    <Property Name="extra_id" Type="int" />
+    <Property Name="parent_key" Type="int" Nullable="false" />
+    <Property Name="service_id" Type="int" Nullable="false" />
+    <Property Name="service_id_check" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="merchant_group">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="text" />
+    <Property Name="position" Type="int" />
+    <Property Name="name_uzb" Type="text" />
+    <Property Name="icon_path" Type="text" />
+    <Property Name="icon_id" Type="bigint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RAD_PAY.dbo.merchant_qr_image' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="merchant_qr_image">
+    <Key>
+      <PropertyRef Name="merchant_id" />
+    </Key>
+    <Property Name="merchant_id" Type="int" Nullable="false" />
+    <Property Name="location" Type="text" />
+  </EntityType>
+  <EntityType Name="news">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="msg" Type="text" />
+    <Property Name="add_ts" Type="datetime" />
+    <Property Name="edit_ts" Type="datetime" />
+    <Property Name="lang" Type="int" Nullable="false" />
+    <Property Name="uid" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="notification">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="msg" Type="text" />
+    <Property Name="add_ts" Type="datetime" />
+    <Property Name="send" Type="int" />
+    <Property Name="uid" Type="bigint" />
+    <Property Name="type" Type="text" />
+  </EntityType>
+  <EntityType Name="paynet_info">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rad_tr_id" Type="bigint" />
+  </EntityType>
+  <EntityType Name="periodic_bill">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="bigint" />
+    <Property Name="merchant_id" Type="int" />
+    <Property Name="field_id" Type="int" />
+    <Property Name="amount" Type="bigint" />
+    <Property Name="name" Type="text" />
+    <Property Name="value" Type="text" />
+    <Property Name="periodic_ts" Type="text" />
+    <Property Name="prefix" Type="text" />
+    <Property Name="add_ts" Type="datetime" Nullable="false" />
+    <Property Name="status" Type="int" />
+    <Property Name="last_bill_ts" Type="datetime" />
+    <Property Name="last_notify_ts" Type="datetime" />
+    <Property Name="card_id" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="purchase_info">
+    <Key>
+      <PropertyRef Name="rad_tr_id" />
+    </Key>
+    <Property Name="rad_tr_id" Type="bigint" Nullable="false" />
+    <Property Name="trn_id" Type="bigint" Nullable="false" />
+    <Property Name="json_text" Type="text" />
+    <Property Name="request_type" Type="bigint" />
+    <Property Name="input_of_request" Type="text" />
+  </EntityType>
+  <EntityType Name="purchases">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="merchant_id" Type="int" Nullable="false" />
+    <Property Name="login" Type="text" />
+    <Property Name="amount" Type="bigint" />
+    <Property Name="ts" Type="datetime" />
+    <Property Name="uid" Type="bigint" />
+    <Property Name="transaction_id" Type="text" />
+    <Property Name="pan" Type="text" />
+    <Property Name="status" Type="int" />
+    <Property Name="paynet_tr_id" Type="text" />
+    <Property Name="paynet_status" Type="int" Nullable="false" />
+    <Property Name="receipt" Type="bigint" />
+    <Property Name="rad_paynet_tr_id" Type="bigint" Nullable="false" />
+    <Property Name="rad_tr_id" Type="bigint" />
+    <Property Name="card_id" Type="bigint" />
+    <Property Name="bearn" Type="bigint" />
+    <Property Name="commission" Type="bigint" Nullable="false" />
+    <Property Name="merch_rsp" Type="text" />
+  </EntityType>
+  <EntityType Name="purchases_reverse">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pid" Type="bigint" />
+    <Property Name="aid" Type="bigint" />
+    <Property Name="uid" Type="bigint" />
+    <Property Name="sms_code" Type="text" />
+    <Property Name="status" Type="int" />
+    <Property Name="ts_start" Type="datetime" />
+    <Property Name="ts_confirm" Type="datetime" />
+    <Property Name="phone" Type="text" />
+    <Property Name="baz" Type="text" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RAD_PAY.dbo.qr_image' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="qr_image">
+    <Key>
+      <PropertyRef Name="uid" />
+    </Key>
+    <Property Name="uid" Type="bigint" Nullable="false" />
+    <Property Name="location" Type="text" />
+  </EntityType>
+  <EntityType Name="rad_app_info">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="text" />
+    <Property Name="os" Type="text" />
+    <Property Name="release_date" Type="date" />
+    <Property Name="expiry_date" Type="date" />
+    <Property Name="min_version" Type="text" />
+    <Property Name="a3" Type="text" />
+  </EntityType>
+  <EntityType Name="sms_info">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="msg" Type="text" />
+    <Property Name="ts" Type="datetime" />
+    <Property Name="send" Type="int" />
+    <Property Name="nphones" Type="int" />
+    <Property Name="phone" Type="text" />
+    <Property Name="type" Type="int" />
+  </EntityType>
+  <EntityType Name="temp_transaction">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="bigint" />
+    <Property Name="dst_uid" Type="bigint" />
+    <Property Name="amount" Type="bigint" Nullable="false" />
+    <Property Name="create_ts" Type="datetime" Nullable="false" />
+    <Property Name="token" Type="text" Nullable="false" />
+    <Property Name="dstcard" Type="text" />
+  </EntityType>
+  <EntityType Name="top_up_merchants">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="text" />
+    <Property Name="status" Type="int" />
+    <Property Name="option" Type="int" />
+    <Property Name="min_amount" Type="bigint" />
+    <Property Name="max_amount" Type="bigint" />
+    <Property Name="rate" Type="bigint" />
+    <Property Name="position" Type="int" />
+    <Property Name="card_id" Type="bigint" />
+    <Property Name="icon_id" Type="bigint" />
+  </EntityType>
+  <EntityType Name="top_up_transactions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="topup_id" Type="int" />
+    <Property Name="amount_sum" Type="bigint" />
+    <Property Name="amount_req" Type="float" />
+    <Property Name="currency" Type="int" />
+    <Property Name="uid" Type="bigint" />
+    <Property Name="login" Type="text" />
+    <Property Name="ts" Type="datetime" />
+    <Property Name="tse" Type="datetime" />
+    <Property Name="status" Type="int" />
+    <Property Name="status_text" Type="text" />
+    <Property Name="card_id" Type="bigint" />
+    <Property Name="card_pan" Type="text" />
+    <Property Name="eopc_trn_id" Type="text" />
+    <Property Name="rad_card" Type="bigint" />
+    <Property Name="pay_description" Type="text" />
+    <Property Name="topup_trn_id" Type="bigint" />
+  </EntityType>
+  <EntityType Name="transaction">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="bigint" />
+    <Property Name="srccard" Type="text" />
+    <Property Name="dstcard" Type="text" />
+    <Property Name="srcphone" Type="text" />
+    <Property Name="dstphone" Type="text" />
+    <Property Name="amount" Type="bigint" />
+    <Property Name="ts" Type="datetime" />
+    <Property Name="status" Type="int" />
+    <Property Name="dst_uid" Type="bigint" />
+    <Property Name="commision" Type="bigint" />
+    <Property Name="ref_num" Type="text" />
+    <Property Name="bearn" Type="bigint" />
+    <Property Name="status_text" Type="text" />
+  </EntityType>
+  <EntityType Name="user_bills">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="bigint" />
+    <Property Name="uid2" Type="bigint" />
+    <Property Name="amount" Type="bigint" />
+    <Property Name="merchant_id" Type="int" />
+    <Property Name="value" Type="text" />
+    <Property Name="status" Type="int" />
+    <Property Name="add_ts" Type="datetime" />
+    <Property Name="comment" Type="text" />
+  </EntityType>
+  <EntityType Name="user_bonus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="bigint" Nullable="false" />
+    <Property Name="balance" Type="bigint" />
+    <Property Name="earns" Type="bigint" />
+    <Property Name="block" Type="int" />
+    <Property Name="fio" Type="text" />
+    <Property Name="pan" Type="text" />
+    <Property Name="expire" Type="text" />
+    <Property Name="add_ts" Type="datetime" />
+    <Property Name="bonus_card_id" Type="bigint" />
+  </EntityType>
+  <EntityType Name="user_devices">
+    <Key>
+      <PropertyRef Name="dev_id" />
+    </Key>
+    <Property Name="dev_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="bigint" />
+    <Property Name="dev_token" Type="text" />
+    <Property Name="password" Type="text" />
+    <Property Name="add_ts" Type="datetime" />
+    <Property Name="notify_token" Type="text" />
+    <Property Name="os" Type="text" />
+    <Property Name="login_ts" Type="datetime" />
+    <Property Name="dev_imei" Type="text" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="phone" Type="text" Nullable="false" />
+    <Property Name="password" Type="text" />
+    <Property Name="name" Type="text" />
+    <Property Name="registration" Type="datetime" Nullable="false" />
+    <Property Name="sex" Type="int" Nullable="false" />
+    <Property Name="notify_token" Type="text" />
+    <Property Name="qrstring" Type="text" />
+    <Property Name="tr_limit" Type="int" />
+    <Property Name="avatar" Type="text" />
+    <Property Name="email" Type="text" />
+    <Property Name="token" Type="text" />
+    <Property Name="lang" Type="int" />
+    <Property Name="blocked" Type="int" Nullable="false" />
+    <Property Name="purch_ts" Type="datetime" />
+    <Property Name="sms_allow" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users_cabinet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="bigint" Nullable="false" />
+    <Property Name="password" Type="text" />
+    <Property Name="checkpassword" Type="int" />
+    <Property Name="last_passwd_check" Type="datetime" />
+    <Property Name="check_count" Type="int" />
+    <Property Name="checkcode_expiry" Type="datetime" />
+  </EntityType>
+  <EntityType Name="users_full_registers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="bigint" />
+    <Property Name="fio" Type="text" />
+    <Property Name="passport_number" Type="text" />
+    <Property Name="passport_start_date" Type="date" />
+    <Property Name="passport_end_date" Type="date" />
+    <Property Name="passport_image_path" Type="text" />
+    <Property Name="date_of_birth" Type="date" />
+    <Property Name="nationality" Type="text" />
+    <Property Name="citizenship" Type="text" />
+    <Property Name="status" Type="int" />
+    <Property Name="passport_serial" Type="text" />
+    <Property Name="level" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RAD_PAY.dbo.users_online' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="users_online">
+    <Key>
+      <PropertyRef Name="uid" />
+      <PropertyRef Name="token" />
+      <PropertyRef Name="login_time" />
+      <PropertyRef Name="last_online" />
+    </Key>
+    <Property Name="uid" Type="bigint" Nullable="false" />
+    <Property Name="token" Type="text" Nullable="false" />
+    <Property Name="login_time" Type="datetime" Nullable="false" />
+    <Property Name="last_online" Type="datetime" Nullable="false" />
+    <Property Name="dev_id" Type="bigint" />
+  </EntityType>
+  <Association Name="FK_admin_online_admins">
+    <End Role="admins" Type="Self.admins" Multiplicity="1" />
+    <End Role="admin_online" Type="Self.admin_online" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admins">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="admin_online">
+        <PropertyRef Name="aid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_admin_permissions_admins">
+    <End Role="admins" Type="Self.admins" Multiplicity="1" />
+    <End Role="admin_permissions" Type="Self.admin_permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admins">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="admin_permissions">
+        <PropertyRef Name="aid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_admin_permissions_bank">
+    <End Role="bank" Type="Self.bank" Multiplicity="1" />
+    <End Role="admin_permissions" Type="Self.admin_permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bank">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="admin_permissions">
+        <PropertyRef Name="bank" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_admin_permissions_merchant">
+    <End Role="merchant" Type="Self.merchant" Multiplicity="0..1" />
+    <End Role="admin_permissions" Type="Self.admin_permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="merchant">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="admin_permissions">
+        <PropertyRef Name="merchant" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bank_bonus_bank">
+    <End Role="bank" Type="Self.bank" Multiplicity="1" />
+    <End Role="bank_bonus" Type="Self.bank_bonus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bank">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="bank_bonus">
+        <PropertyRef Name="bank_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bank_icons">
+    <End Role="icons" Type="Self.icons" Multiplicity="0..1" />
+    <End Role="bank" Type="Self.bank" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="icons">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="bank">
+        <PropertyRef Name="icon_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bills_users">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="bills" Type="Self.bills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="bills">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_card_monitoring_cabinet_cards">
+    <End Role="cards" Type="Self.cards" Multiplicity="1" />
+    <End Role="card_monitoring_cabinet" Type="Self.card_monitoring_cabinet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cards">
+        <PropertyRef Name="card_id" />
+      </Principal>
+      <Dependent Role="card_monitoring_cabinet">
+        <PropertyRef Name="card_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_card_monitoring_cabinet_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="card_monitoring_cabinet" Type="Self.card_monitoring_cabinet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="card_monitoring_cabinet">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_card_monitoring_cards">
+    <End Role="cards" Type="Self.cards" Multiplicity="1" />
+    <End Role="card_monitoring" Type="Self.card_monitoring" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cards">
+        <PropertyRef Name="card_id" />
+      </Principal>
+      <Dependent Role="card_monitoring">
+        <PropertyRef Name="card_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_card_monitoring_load_cards">
+    <End Role="cards" Type="Self.cards" Multiplicity="0..1" />
+    <End Role="card_monitoring_load" Type="Self.card_monitoring_load" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cards">
+        <PropertyRef Name="card_id" />
+      </Principal>
+      <Dependent Role="card_monitoring_load">
+        <PropertyRef Name="card_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_card_monitoring_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="card_monitoring" Type="Self.card_monitoring" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="card_monitoring">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cards_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="cards" Type="Self.cards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cards">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_favorite_merchant">
+    <End Role="merchant" Type="Self.merchant" Multiplicity="0..1" />
+    <End Role="favorite" Type="Self.favorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="merchant">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="favorite">
+        <PropertyRef Name="merchant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_favorite_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="favorite" Type="Self.favorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="favorite">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_merchant_access_info_merchant">
+    <End Role="merchant" Type="Self.merchant" Multiplicity="1" />
+    <End Role="merchant_access_info" Type="Self.merchant_access_info" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="merchant">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="merchant_access_info">
+        <PropertyRef Name="merchant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_merchant_bonus_merchant">
+    <End Role="merchant" Type="Self.merchant" Multiplicity="1" />
+    <End Role="merchant_bonus" Type="Self.merchant_bonus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="merchant">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="merchant_bonus">
+        <PropertyRef Name="merchant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_merchant_bonus_merchant_group">
+    <End Role="merchant_group" Type="Self.merchant_group" Multiplicity="1" />
+    <End Role="merchant_bonus" Type="Self.merchant_bonus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="merchant_group">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="merchant_bonus">
+        <PropertyRef Name="group_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_merchant_fields_data_merchant_fields">
+    <End Role="merchant_fields" Type="Self.merchant_fields" Multiplicity="0..1" />
+    <End Role="merchant_fields_data" Type="Self.merchant_fields_data" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="merchant_fields">
+        <PropertyRef Name="fid" />
+      </Principal>
+      <Dependent Role="merchant_fields_data">
+        <PropertyRef Name="fid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_merchant_fields_merchant">
+    <End Role="merchant" Type="Self.merchant" Multiplicity="0..1" />
+    <End Role="merchant_fields" Type="Self.merchant_fields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="merchant">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="merchant_fields">
+        <PropertyRef Name="mid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_merchant_group_icons">
+    <End Role="icons" Type="Self.icons" Multiplicity="0..1" />
+    <End Role="merchant_group" Type="Self.merchant_group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="icons">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="merchant_group">
+        <PropertyRef Name="icon_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_merchant_icons">
+    <End Role="icons" Type="Self.icons" Multiplicity="1" />
+    <End Role="merchant" Type="Self.merchant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="icons">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="merchant">
+        <PropertyRef Name="icon_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_merchant_merchant_api">
+    <End Role="merchant_api" Type="Self.merchant_api" Multiplicity="1" />
+    <End Role="merchant" Type="Self.merchant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="merchant_api">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="merchant">
+        <PropertyRef Name="api_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_merchant_qr_image_merchant">
+    <End Role="merchant" Type="Self.merchant" Multiplicity="1" />
+    <End Role="merchant_qr_image" Type="Self.merchant_qr_image" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="merchant">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="merchant_qr_image">
+        <PropertyRef Name="merchant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_news_users">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="news" Type="Self.news" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="news">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_notification_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="notification" Type="Self.notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="notification">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_periodic_bill_cards">
+    <End Role="cards" Type="Self.cards" Multiplicity="1" />
+    <End Role="periodic_bill" Type="Self.periodic_bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cards">
+        <PropertyRef Name="card_id" />
+      </Principal>
+      <Dependent Role="periodic_bill">
+        <PropertyRef Name="card_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_periodic_bill_merchant">
+    <End Role="merchant" Type="Self.merchant" Multiplicity="0..1" />
+    <End Role="periodic_bill" Type="Self.periodic_bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="merchant">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="periodic_bill">
+        <PropertyRef Name="merchant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_periodic_bill_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="periodic_bill" Type="Self.periodic_bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="periodic_bill">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_purchase_info_purchases">
+    <End Role="purchases" Type="Self.purchases" Multiplicity="1" />
+    <End Role="purchase_info" Type="Self.purchase_info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="purchases">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="purchase_info">
+        <PropertyRef Name="trn_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_purchases_cards">
+    <End Role="cards" Type="Self.cards" Multiplicity="0..1" />
+    <End Role="purchases" Type="Self.purchases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cards">
+        <PropertyRef Name="card_id" />
+      </Principal>
+      <Dependent Role="purchases">
+        <PropertyRef Name="card_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_purchases_merchant">
+    <End Role="merchant" Type="Self.merchant" Multiplicity="1" />
+    <End Role="purchases" Type="Self.purchases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="merchant">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="purchases">
+        <PropertyRef Name="merchant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_purchases_reverse_admins">
+    <End Role="admins" Type="Self.admins" Multiplicity="0..1" />
+    <End Role="purchases_reverse" Type="Self.purchases_reverse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admins">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="purchases_reverse">
+        <PropertyRef Name="aid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_purchases_reverse_purchases">
+    <End Role="purchases" Type="Self.purchases" Multiplicity="0..1" />
+    <End Role="purchases_reverse" Type="Self.purchases_reverse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="purchases">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="purchases_reverse">
+        <PropertyRef Name="pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_purchases_reverse_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="purchases_reverse" Type="Self.purchases_reverse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="purchases_reverse">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_purchases_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="purchases" Type="Self.purchases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="purchases">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_qr_image_users">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="qr_image" Type="Self.qr_image" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="qr_image">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_temp_transaction_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="temp_transaction" Type="Self.temp_transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="temp_transaction">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_temp_transaction_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="temp_transaction" Type="Self.temp_transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="temp_transaction">
+        <PropertyRef Name="dst_uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_top_up_merchants_icons">
+    <End Role="icons" Type="Self.icons" Multiplicity="0..1" />
+    <End Role="top_up_merchants" Type="Self.top_up_merchants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="icons">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="top_up_merchants">
+        <PropertyRef Name="icon_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_top_up_transactions_cards">
+    <End Role="cards" Type="Self.cards" Multiplicity="0..1" />
+    <End Role="top_up_transactions" Type="Self.top_up_transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cards">
+        <PropertyRef Name="card_id" />
+      </Principal>
+      <Dependent Role="top_up_transactions">
+        <PropertyRef Name="card_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_top_up_transactions_top_up_merchants">
+    <End Role="top_up_merchants" Type="Self.top_up_merchants" Multiplicity="0..1" />
+    <End Role="top_up_transactions" Type="Self.top_up_transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="top_up_merchants">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="top_up_transactions">
+        <PropertyRef Name="topup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_top_up_transactions_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="top_up_transactions" Type="Self.top_up_transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="top_up_transactions">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_transaction_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="transaction" Type="Self.transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="transaction">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_transaction_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="transaction" Type="Self.transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="transaction">
+        <PropertyRef Name="dst_uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_bills_merchant">
+    <End Role="merchant" Type="Self.merchant" Multiplicity="0..1" />
+    <End Role="user_bills" Type="Self.user_bills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="merchant">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_bills">
+        <PropertyRef Name="merchant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_bills_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="user_bills" Type="Self.user_bills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_bills">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_bills_users1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="user_bills" Type="Self.user_bills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_bills">
+        <PropertyRef Name="uid2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_bonus_card_bonus">
+    <End Role="card_bonus" Type="Self.card_bonus" Multiplicity="0..1" />
+    <End Role="user_bonus" Type="Self.user_bonus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="card_bonus">
+        <PropertyRef Name="card_id" />
+      </Principal>
+      <Dependent Role="user_bonus">
+        <PropertyRef Name="bonus_card_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_bonus_users">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="user_bonus" Type="Self.user_bonus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_bonus">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_devices_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="user_devices" Type="Self.user_devices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_devices">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_users_cabinet_users">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="users_cabinet" Type="Self.users_cabinet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="users_cabinet">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_users_full_registers_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="users_full_registers" Type="Self.users_full_registers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="users_full_registers">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_users_online_user_devices">
+    <End Role="user_devices" Type="Self.user_devices" Multiplicity="0..1" />
+    <End Role="users_online" Type="Self.users_online" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user_devices">
+        <PropertyRef Name="dev_id" />
+      </Principal>
+      <Dependent Role="users_online">
+        <PropertyRef Name="dev_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_users_online_users">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="users_online" Type="Self.users_online" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="users_online">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RAD_PAYModelStoreContainer">
+    <EntitySet Name="activate_code" EntityType="Self.activate_code" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="admins" EntityType="Self.admins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bank" EntityType="Self.bank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bank_bonus" EntityType="Self.bank_bonus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bills" EntityType="Self.bills" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="card_bonus" EntityType="Self.card_bonus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="card_monitoring" EntityType="Self.card_monitoring" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="card_monitoring_cabinet" EntityType="Self.card_monitoring_cabinet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="card_monitoring_load" EntityType="Self.card_monitoring_load" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="card_monitoring_tarif" EntityType="Self.card_monitoring_tarif" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="card_topup_master" EntityType="Self.card_topup_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cards" EntityType="Self.cards" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="currencies" EntityType="Self.currencies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="epos" EntityType="Self.epos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="error_codes" EntityType="Self.error_codes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fault" EntityType="Self.fault" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="favorite" EntityType="Self.favorite" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="icons" EntityType="Self.icons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="log" EntityType="Self.log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="merchant" EntityType="Self.merchant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="merchant_api" EntityType="Self.merchant_api" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="merchant_bonus" EntityType="Self.merchant_bonus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="merchant_fields" EntityType="Self.merchant_fields" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="merchant_fields_data" EntityType="Self.merchant_fields_data" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="merchant_group" EntityType="Self.merchant_group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="news" EntityType="Self.news" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="notification" EntityType="Self.notification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="paynet_info" EntityType="Self.paynet_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="periodic_bill" EntityType="Self.periodic_bill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="purchase_info" EntityType="Self.purchase_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="purchases" EntityType="Self.purchases" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="purchases_reverse" EntityType="Self.purchases_reverse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rad_app_info" EntityType="Self.rad_app_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sms_info" EntityType="Self.sms_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="temp_transaction" EntityType="Self.temp_transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="top_up_merchants" EntityType="Self.top_up_merchants" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="top_up_transactions" EntityType="Self.top_up_transactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="transaction" EntityType="Self.transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_bills" EntityType="Self.user_bills" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_bonus" EntityType="Self.user_bonus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_devices" EntityType="Self.user_devices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users_cabinet" EntityType="Self.users_cabinet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users_full_registers" EntityType="Self.users_full_registers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="admin_online" EntityType="Self.admin_online" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [admin_online].[aid] AS [aid], 
+    [admin_online].[token] AS [token], 
+    [admin_online].[login_ts] AS [login_ts], 
+    [admin_online].[last_ts] AS [last_ts]
+    FROM [dbo].[admin_online] AS [admin_online]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="admin_permissions" EntityType="Self.admin_permissions" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [admin_permissions].[aid] AS [aid], 
+    [admin_permissions].[modules] AS [modules], 
+    [admin_permissions].[merchant] AS [merchant], 
+    [admin_permissions].[bank] AS [bank], 
+    [admin_permissions].[permit_flag] AS [permit_flag]
+    FROM [dbo].[admin_permissions] AS [admin_permissions]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="merchant_access_info" EntityType="Self.merchant_access_info" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [merchant_access_info].[merchant_id] AS [merchant_id], 
+    [merchant_access_info].[login] AS [login], 
+    [merchant_access_info].[password] AS [password], 
+    [merchant_access_info].[api_json] AS [api_json], 
+    [merchant_access_info].[url] AS [url]
+    FROM [dbo].[merchant_access_info] AS [merchant_access_info]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="merchant_qr_image" EntityType="Self.merchant_qr_image" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [merchant_qr_image].[merchant_id] AS [merchant_id], 
+    [merchant_qr_image].[location] AS [location]
+    FROM [dbo].[merchant_qr_image] AS [merchant_qr_image]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="qr_image" EntityType="Self.qr_image" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [qr_image].[uid] AS [uid], 
+    [qr_image].[location] AS [location]
+    FROM [dbo].[qr_image] AS [qr_image]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="users_online" EntityType="Self.users_online" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [users_online].[uid] AS [uid], 
+    [users_online].[token] AS [token], 
+    [users_online].[login_time] AS [login_time], 
+    [users_online].[last_online] AS [last_online], 
+    [users_online].[dev_id] AS [dev_id]
+    FROM [dbo].[users_online] AS [users_online]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_admin_online_admins" Association="Self.FK_admin_online_admins">
+      <End Role="admins" EntitySet="admins" />
+      <End Role="admin_online" EntitySet="admin_online" />
+    </AssociationSet>
+    <AssociationSet Name="FK_admin_permissions_admins" Association="Self.FK_admin_permissions_admins">
+      <End Role="admins" EntitySet="admins" />
+      <End Role="admin_permissions" EntitySet="admin_permissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_admin_permissions_bank" Association="Self.FK_admin_permissions_bank">
+      <End Role="bank" EntitySet="bank" />
+      <End Role="admin_permissions" EntitySet="admin_permissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_admin_permissions_merchant" Association="Self.FK_admin_permissions_merchant">
+      <End Role="merchant" EntitySet="merchant" />
+      <End Role="admin_permissions" EntitySet="admin_permissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bank_bonus_bank" Association="Self.FK_bank_bonus_bank">
+      <End Role="bank" EntitySet="bank" />
+      <End Role="bank_bonus" EntitySet="bank_bonus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bank_icons" Association="Self.FK_bank_icons">
+      <End Role="icons" EntitySet="icons" />
+      <End Role="bank" EntitySet="bank" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bills_users" Association="Self.FK_bills_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="bills" EntitySet="bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_card_monitoring_cabinet_cards" Association="Self.FK_card_monitoring_cabinet_cards">
+      <End Role="cards" EntitySet="cards" />
+      <End Role="card_monitoring_cabinet" EntitySet="card_monitoring_cabinet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_card_monitoring_cabinet_users" Association="Self.FK_card_monitoring_cabinet_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="card_monitoring_cabinet" EntitySet="card_monitoring_cabinet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_card_monitoring_cards" Association="Self.FK_card_monitoring_cards">
+      <End Role="cards" EntitySet="cards" />
+      <End Role="card_monitoring" EntitySet="card_monitoring" />
+    </AssociationSet>
+    <AssociationSet Name="FK_card_monitoring_load_cards" Association="Self.FK_card_monitoring_load_cards">
+      <End Role="cards" EntitySet="cards" />
+      <End Role="card_monitoring_load" EntitySet="card_monitoring_load" />
+    </AssociationSet>
+    <AssociationSet Name="FK_card_monitoring_users" Association="Self.FK_card_monitoring_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="card_monitoring" EntitySet="card_monitoring" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cards_users" Association="Self.FK_cards_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="cards" EntitySet="cards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_favorite_merchant" Association="Self.FK_favorite_merchant">
+      <End Role="merchant" EntitySet="merchant" />
+      <End Role="favorite" EntitySet="favorite" />
+    </AssociationSet>
+    <AssociationSet Name="FK_favorite_users" Association="Self.FK_favorite_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="favorite" EntitySet="favorite" />
+    </AssociationSet>
+    <AssociationSet Name="FK_merchant_access_info_merchant" Association="Self.FK_merchant_access_info_merchant">
+      <End Role="merchant" EntitySet="merchant" />
+      <End Role="merchant_access_info" EntitySet="merchant_access_info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_merchant_bonus_merchant" Association="Self.FK_merchant_bonus_merchant">
+      <End Role="merchant" EntitySet="merchant" />
+      <End Role="merchant_bonus" EntitySet="merchant_bonus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_merchant_bonus_merchant_group" Association="Self.FK_merchant_bonus_merchant_group">
+      <End Role="merchant_group" EntitySet="merchant_group" />
+      <End Role="merchant_bonus" EntitySet="merchant_bonus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_merchant_fields_data_merchant_fields" Association="Self.FK_merchant_fields_data_merchant_fields">
+      <End Role="merchant_fields" EntitySet="merchant_fields" />
+      <End Role="merchant_fields_data" EntitySet="merchant_fields_data" />
+    </AssociationSet>
+    <AssociationSet Name="FK_merchant_fields_merchant" Association="Self.FK_merchant_fields_merchant">
+      <End Role="merchant" EntitySet="merchant" />
+      <End Role="merchant_fields" EntitySet="merchant_fields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_merchant_group_icons" Association="Self.FK_merchant_group_icons">
+      <End Role="icons" EntitySet="icons" />
+      <End Role="merchant_group" EntitySet="merchant_group" />
+    </AssociationSet>
+    <AssociationSet Name="FK_merchant_icons" Association="Self.FK_merchant_icons">
+      <End Role="icons" EntitySet="icons" />
+      <End Role="merchant" EntitySet="merchant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_merchant_merchant_api" Association="Self.FK_merchant_merchant_api">
+      <End Role="merchant_api" EntitySet="merchant_api" />
+      <End Role="merchant" EntitySet="merchant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_merchant_qr_image_merchant" Association="Self.FK_merchant_qr_image_merchant">
+      <End Role="merchant" EntitySet="merchant" />
+      <End Role="merchant_qr_image" EntitySet="merchant_qr_image" />
+    </AssociationSet>
+    <AssociationSet Name="FK_news_users" Association="Self.FK_news_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="news" EntitySet="news" />
+    </AssociationSet>
+    <AssociationSet Name="FK_notification_users" Association="Self.FK_notification_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="notification" EntitySet="notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_periodic_bill_cards" Association="Self.FK_periodic_bill_cards">
+      <End Role="cards" EntitySet="cards" />
+      <End Role="periodic_bill" EntitySet="periodic_bill" />
+    </AssociationSet>
+    <AssociationSet Name="FK_periodic_bill_merchant" Association="Self.FK_periodic_bill_merchant">
+      <End Role="merchant" EntitySet="merchant" />
+      <End Role="periodic_bill" EntitySet="periodic_bill" />
+    </AssociationSet>
+    <AssociationSet Name="FK_periodic_bill_users" Association="Self.FK_periodic_bill_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="periodic_bill" EntitySet="periodic_bill" />
+    </AssociationSet>
+    <AssociationSet Name="FK_purchase_info_purchases" Association="Self.FK_purchase_info_purchases">
+      <End Role="purchases" EntitySet="purchases" />
+      <End Role="purchase_info" EntitySet="purchase_info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_purchases_cards" Association="Self.FK_purchases_cards">
+      <End Role="cards" EntitySet="cards" />
+      <End Role="purchases" EntitySet="purchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_purchases_merchant" Association="Self.FK_purchases_merchant">
+      <End Role="merchant" EntitySet="merchant" />
+      <End Role="purchases" EntitySet="purchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_purchases_reverse_admins" Association="Self.FK_purchases_reverse_admins">
+      <End Role="admins" EntitySet="admins" />
+      <End Role="purchases_reverse" EntitySet="purchases_reverse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_purchases_reverse_purchases" Association="Self.FK_purchases_reverse_purchases">
+      <End Role="purchases" EntitySet="purchases" />
+      <End Role="purchases_reverse" EntitySet="purchases_reverse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_purchases_reverse_users" Association="Self.FK_purchases_reverse_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="purchases_reverse" EntitySet="purchases_reverse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_purchases_users" Association="Self.FK_purchases_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="purchases" EntitySet="purchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_qr_image_users" Association="Self.FK_qr_image_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="qr_image" EntitySet="qr_image" />
+    </AssociationSet>
+    <AssociationSet Name="FK_temp_transaction_users" Association="Self.FK_temp_transaction_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="temp_transaction" EntitySet="temp_transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_temp_transaction_users1" Association="Self.FK_temp_transaction_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="temp_transaction" EntitySet="temp_transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_top_up_merchants_icons" Association="Self.FK_top_up_merchants_icons">
+      <End Role="icons" EntitySet="icons" />
+      <End Role="top_up_merchants" EntitySet="top_up_merchants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_top_up_transactions_cards" Association="Self.FK_top_up_transactions_cards">
+      <End Role="cards" EntitySet="cards" />
+      <End Role="top_up_transactions" EntitySet="top_up_transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_top_up_transactions_top_up_merchants" Association="Self.FK_top_up_transactions_top_up_merchants">
+      <End Role="top_up_merchants" EntitySet="top_up_merchants" />
+      <End Role="top_up_transactions" EntitySet="top_up_transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_top_up_transactions_users" Association="Self.FK_top_up_transactions_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="top_up_transactions" EntitySet="top_up_transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_transaction_users" Association="Self.FK_transaction_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="transaction" EntitySet="transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_transaction_users1" Association="Self.FK_transaction_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="transaction" EntitySet="transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_bills_merchant" Association="Self.FK_user_bills_merchant">
+      <End Role="merchant" EntitySet="merchant" />
+      <End Role="user_bills" EntitySet="user_bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_bills_users" Association="Self.FK_user_bills_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="user_bills" EntitySet="user_bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_bills_users1" Association="Self.FK_user_bills_users1">
+      <End Role="users" EntitySet="users" />
+      <End Role="user_bills" EntitySet="user_bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_bonus_card_bonus" Association="Self.FK_user_bonus_card_bonus">
+      <End Role="card_bonus" EntitySet="card_bonus" />
+      <End Role="user_bonus" EntitySet="user_bonus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_bonus_users" Association="Self.FK_user_bonus_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="user_bonus" EntitySet="user_bonus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_devices_users" Association="Self.FK_user_devices_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="user_devices" EntitySet="user_devices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_users_cabinet_users" Association="Self.FK_users_cabinet_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="users_cabinet" EntitySet="users_cabinet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_users_full_registers_users" Association="Self.FK_users_full_registers_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="users_full_registers" EntitySet="users_full_registers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_users_online_user_devices" Association="Self.FK_users_online_user_devices">
+      <End Role="user_devices" EntitySet="user_devices" />
+      <End Role="users_online" EntitySet="users_online" />
+    </AssociationSet>
+    <AssociationSet Name="FK_users_online_users" Association="Self.FK_users_online_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="users_online" EntitySet="users_online" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

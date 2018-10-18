@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0b1fb077d5d145ec953376e57428da6b" Name="Diagram1">
+        <EntityTypeShape EntityType="RAD_PAYModel.activate_code" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.admin" Width="1.5" PointX="11.25" PointY="48.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.bank" Width="1.5" PointX="3.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.bank_bonus" Width="1.5" PointX="6" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.bill" Width="1.5" PointX="3" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.card_bonus" Width="1.5" PointX="8.75" PointY="49.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.card_monitoring" Width="1.5" PointX="5.25" PointY="39.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.card_monitoring_cabinet" Width="1.5" PointX="8.25" PointY="38.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.card_monitoring_load" Width="1.5" PointX="5.25" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.card_monitoring_tarif" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.card_topup_master" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.card" Width="1.5" PointX="3" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.currency" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.epos" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.error_codes" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.fault" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.favorite" Width="1.5" PointX="6" PointY="45.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.icon" Width="1.5" PointX="1.5" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.log" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.merchant" Width="1.5" PointX="3.75" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.merchant_api" Width="1.5" PointX="1.5" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.merchant_bonus" Width="1.5" PointX="9" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.merchant_fields" Width="1.5" PointX="6" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.merchant_fields_data" Width="1.5" PointX="8.25" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.merchant_group" Width="1.5" PointX="3.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.news" Width="1.5" PointX="3" PointY="44.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.notification" Width="1.5" PointX="3" PointY="48" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.paynet_info" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.periodic_bill" Width="1.5" PointX="8.25" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.purchase_info" Width="1.5" PointX="13.5" PointY="39.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.purchase" Width="1.5" PointX="11.25" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.purchases_reverse" Width="1.5" PointX="13.5" PointY="42.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.rad_app_info" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.sms_info" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.temp_transaction" Width="1.5" PointX="3" PointY="51.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.top_up_merchants" Width="1.5" PointX="6" PointY="56.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.top_up_transactions" Width="1.5" PointX="8.25" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.transaction" Width="1.5" PointX="3" PointY="54.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.user_bills" Width="1.5" PointX="6" PointY="32.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.user_bonus" Width="1.5" PointX="11" PointY="44.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.user_devices" Width="1.5" PointX="3" PointY="67.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.user" Width="1.5" PointX="0.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.users_cabinet" Width="1.5" PointX="3" PointY="71.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.users_full_registers" Width="1.5" PointX="3" PointY="74.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.admin_online" Width="1.5" PointX="13.5" PointY="49" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.admin_permissions" Width="1.5" PointX="13.5" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.merchant_access_info" Width="1.5" PointX="6" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.merchant_qr_image" Width="1.5" PointX="6" PointY="50.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.qr_image" Width="1.5" PointX="3" PointY="79.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RAD_PAYModel.users_online" Width="1.5" PointX="5.25" PointY="52.625" IsExpanded="true" />
+        <AssociationConnector Association="RAD_PAYModel.FK_admin_online_admins" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_admin_permissions_admins" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_purchases_reverse_admins" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_admin_permissions_bank" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_bank_bonus_bank" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_bank_icons" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_bills_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_user_bonus_card_bonus" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_card_monitoring_cards" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_card_monitoring_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_card_monitoring_cabinet_cards" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_card_monitoring_cabinet_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_card_monitoring_load_cards" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_cards_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_periodic_bill_cards" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_purchases_cards" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_top_up_transactions_cards" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_favorite_merchant" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_favorite_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_merchant_group_icons" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_merchant_icons" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_top_up_merchants_icons" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_admin_permissions_merchant" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_merchant_access_info_merchant" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_merchant_bonus_merchant" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_merchant_fields_merchant" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_merchant_merchant_api" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_merchant_qr_image_merchant" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_periodic_bill_merchant" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_purchases_merchant" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_user_bills_merchant" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_merchant_bonus_merchant_group" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_merchant_fields_data_merchant_fields" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_news_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_notification_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_periodic_bill_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_purchase_info_purchases" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_purchases_reverse_purchases" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_purchases_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_purchases_reverse_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_temp_transaction_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_temp_transaction_users1" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_top_up_transactions_top_up_merchants" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_top_up_transactions_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_transaction_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_transaction_users1" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_user_bills_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_user_bills_users1" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_user_bonus_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_user_devices_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_users_online_user_devices" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_qr_image_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_users_cabinet_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_users_full_registers_users" ManuallyRouted="false" />
+        <AssociationConnector Association="RAD_PAYModel.FK_users_online_users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
